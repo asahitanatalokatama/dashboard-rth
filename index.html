@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard RTH</title>
+  <style>
+    html,body{height:100%;margin:0;background:#0b1020;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    #wrap{position:fixed;inset:0}
+    iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    #loading{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;
+      color:#fff;background:rgba(0,0,0,.35);backdrop-filter:blur(10px)
+    }
+    .spinner{width:44px;height:44px;border-radius:999px;border:4px solid rgba(255,255,255,.22);border-top-color:rgba(104,181,255,.85);animation:spin .85s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .hint{opacity:.8;font-size:13px}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <iframe id="frame"
+      src="https://lookerstudio.google.com/embed/reporting/51821590-6c5c-44d4-bb78-e3c67b38be30/page/p_qepofuoc5c"
+      allowfullscreen
+      sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation-by-user-activation">
+    </iframe>
+
+    <div id="loading">
+      <div class="spinner"></div>
+      <div class="hint">Memuat Dashboard…</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("frame").addEventListener("load", () => {
+      document.getElementById("loading").style.display = "none";
+    });
+  </script>
+</body>
+</html>
